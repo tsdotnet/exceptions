@@ -1,10 +1,8 @@
-"use strict";
 /*!
  * @author electricessence / https://github.com/electricessence/
  * Licensing: MIT
  * Based upon: https://msdn.microsoft.com/en-us/library/System.Exception%28v=vs.110%29.aspx
  */
-Object.defineProperty(exports, "__esModule", { value: true });
 const NAME = 'Exception';
 /*
  * NOTE:
@@ -14,7 +12,7 @@ const NAME = 'Exception';
 /**
  * Represents errors that occur during application execution.
  */
-class Exception {
+export default class Exception {
     /**
      * Initializes a new instance of the Exception class with a specified error message and optionally a reference to the inner exception that is the cause of this exception.
      * @param message
@@ -54,5 +52,4 @@ class Exception {
         return this.name + (m ? ': ' + m : '');
     }
 }
-exports.default = Exception;
 //# sourceMappingURL=Exception.js.map
