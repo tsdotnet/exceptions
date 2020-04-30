@@ -8,7 +8,7 @@ import SystemException from './SystemException';
 
 const NAME: string = 'NotImplementedException';
 
-export class NotImplementedException
+export default class NotImplementedException
 	extends SystemException
 {
 	protected getName (): string
@@ -16,5 +16,3 @@ export class NotImplementedException
 		return NAME;
 	}
 }
-
-export default NotImplementedException;

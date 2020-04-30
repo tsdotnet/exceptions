@@ -8,7 +8,7 @@ import SystemException from './SystemException';
 
 const NAME: string = 'InvalidOperationException';
 
-export class InvalidOperationException
+export default class InvalidOperationException
 	extends SystemException
 {
 	protected getName (): string
@@ -16,5 +16,3 @@ export class InvalidOperationException
 		return NAME;
 	}
 }
-
-export default InvalidOperationException;

@@ -11,7 +11,6 @@ const NAME: string = 'NullReferenceException';
 export default class NullReferenceException
 	extends SystemException
 {
-
 	protected getName (): string
 	{
 		return NAME;

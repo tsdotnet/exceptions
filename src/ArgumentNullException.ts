@@ -8,7 +8,7 @@ import ArgumentException from './ArgumentException';
 
 const NAME: string = 'ArgumentNullException';
 
-export class ArgumentNullException
+export default class ArgumentNullException
 	extends ArgumentException
 {
 	constructor (
@@ -24,5 +24,3 @@ export class ArgumentNullException
 		return NAME;
 	}
 }
-
-export default ArgumentNullException;

@@ -10,7 +10,7 @@ type Primitive = string | number | boolean;
 
 const NAME: string = 'ArgumentOutOfRangeException';
 
-export class ArgumentOutOfRangeException
+export default class ArgumentOutOfRangeException
 	extends ArgumentException
 {
 	constructor (
@@ -28,5 +28,3 @@ export class ArgumentOutOfRangeException
 		return NAME;
 	}
 }
-
-export default ArgumentOutOfRangeException;

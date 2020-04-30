@@ -1,6 +1,10 @@
 import Exception from '../src/Exception';
+import ArgumentException from '../src/ArgumentException';
 
 const message = 'Test';
+
+// test import and compilation.
+new ArgumentException('x', message);
 
 describe('Error', () => {
 	it('instanceof should work', () => {
