@@ -5,10 +5,9 @@
  */
 import SystemException from './SystemException';
 const NAME = 'InvalidOperationException';
-export class InvalidOperationException extends SystemException {
+export default class InvalidOperationException extends SystemException {
     getName() {
         return NAME;
     }
 }
-export default InvalidOperationException;
 //# sourceMappingURL=InvalidOperationException.js.map

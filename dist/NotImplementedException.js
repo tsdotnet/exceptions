@@ -5,10 +5,9 @@
  */
 import SystemException from './SystemException';
 const NAME = 'NotImplementedException';
-export class NotImplementedException extends SystemException {
+export default class NotImplementedException extends SystemException {
     getName() {
         return NAME;
     }
 }
-export default NotImplementedException;
 //# sourceMappingURL=NotImplementedException.js.map

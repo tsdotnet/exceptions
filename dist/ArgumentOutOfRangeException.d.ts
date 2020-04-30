@@ -5,9 +5,9 @@
  */
 import ArgumentException from './ArgumentException';
 declare type Primitive = string | number | boolean;
-export declare class ArgumentOutOfRangeException extends ArgumentException {
+export default class ArgumentOutOfRangeException extends ArgumentException {
     readonly actualValue: Primitive | null | undefined;
     constructor(paramName: string, actualValue: Primitive | null | undefined, message?: string, innerException?: Error);
     protected getName(): string;
 }
-export default ArgumentOutOfRangeException;
+export {};

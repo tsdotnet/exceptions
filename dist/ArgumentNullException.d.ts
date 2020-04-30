@@ -4,8 +4,7 @@
  * Based upon: https://msdn.microsoft.com/en-us/library/System.Exception%28v=vs.110%29.aspx
  */
 import ArgumentException from './ArgumentException';
-export declare class ArgumentNullException extends ArgumentException {
+export default class ArgumentNullException extends ArgumentException {
     constructor(paramName: string, message?: string, innerException?: any);
     protected getName(): string;
 }
-export default ArgumentNullException;

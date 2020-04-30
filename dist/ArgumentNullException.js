@@ -5,7 +5,7 @@
  */
 import ArgumentException from './ArgumentException';
 const NAME = 'ArgumentNullException';
-export class ArgumentNullException extends ArgumentException {
+export default class ArgumentNullException extends ArgumentException {
     constructor(paramName, message = (paramName || 'Argument ') + 'is null (or undefined).', innerException) {
         super(paramName, message, innerException);
     }
@@ -13,5 +13,4 @@ export class ArgumentNullException extends ArgumentException {
         return NAME;
     }
 }
-export default ArgumentNullException;
 //# sourceMappingURL=ArgumentNullException.js.map

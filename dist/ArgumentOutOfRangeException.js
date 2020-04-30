@@ -5,7 +5,7 @@
  */
 import ArgumentException from './ArgumentException';
 const NAME = 'ArgumentOutOfRangeException';
-export class ArgumentOutOfRangeException extends ArgumentException {
+export default class ArgumentOutOfRangeException extends ArgumentException {
     constructor(paramName, actualValue, message = ' ', innerException) {
         super(paramName, `(${actualValue}) ` + message, innerException);
         this.actualValue = actualValue;
@@ -14,5 +14,4 @@ export class ArgumentOutOfRangeException extends ArgumentException {
         return NAME;
     }
 }
-export default ArgumentOutOfRangeException;
 //# sourceMappingURL=ArgumentOutOfRangeException.js.map
