@@ -36,16 +36,16 @@ export default class Exception {
         }
     }
     /**
-     * A string representation of the error type.
-     */
-    getName() {
-        return NAME;
-    }
-    /**
      * The string representation of the Exception instance.
      */
     toString() {
         return `[${this.toStringWithoutBrackets()}]`;
+    }
+    /**
+     * A string representation of the error type.
+     */
+    getName() {
+        return NAME;
     }
     toStringWithoutBrackets() {
         const m = this.message;

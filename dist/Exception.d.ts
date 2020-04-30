@@ -18,12 +18,12 @@ export default class Exception implements Error {
      */
     constructor(message?: string, innerException?: any);
     /**
-     * A string representation of the error type.
-     */
-    protected getName(): string;
-    /**
      * The string representation of the Exception instance.
      */
     toString(): string;
+    /**
+     * A string representation of the error type.
+     */
+    protected getName(): string;
     protected toStringWithoutBrackets(): string;
 }
