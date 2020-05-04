@@ -7,4 +7,5 @@
 A collection of specific .NET style Exception (Error like) classes.  Helpful for use with 'catch' and 'instanceof'.
 
 ## Docs
+
 [tsdotnet.github.io/exceptions](https://tsdotnet.github.io/exceptions/)
