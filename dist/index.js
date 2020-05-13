@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NullReferenceException = exports.NotImplementedException = exports.InvalidOperationException = exports.ArgumentOutOfRangeException = exports.ArgumentNullException = exports.ArgumentException = exports.SystemException = exports.Exception = void 0;
 const tslib_1 = require("tslib");
 const Exception_1 = tslib_1.__importDefault(require("./Exception"));
 exports.Exception = Exception_1.default;
