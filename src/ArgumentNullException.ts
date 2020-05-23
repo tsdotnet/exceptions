@@ -14,7 +14,7 @@ export default class ArgumentNullException
 	constructor (
 		paramName: string,
 		message: string = (paramName || 'Argument ') + 'is null (or undefined).',
-		innerException?: any)
+		innerException?: unknown)
 	{
 		super(paramName, message, innerException);
 	}

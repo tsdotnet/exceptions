@@ -8,7 +8,7 @@
  */
 export default class Exception implements Error {
     readonly message: string;
-    readonly innerException?: any;
+    readonly innerException?: unknown;
     readonly name: string;
     readonly stack: string;
     /**
@@ -16,7 +16,7 @@ export default class Exception implements Error {
      * @param message
      * @param innerException
      */
-    constructor(message?: string, innerException?: any);
+    constructor(message?: string, innerException?: unknown);
     /**
      * The string representation of the Exception instance.
      */

@@ -6,6 +6,6 @@
 import SystemException from './SystemException';
 export default class ArgumentException extends SystemException {
     readonly paramName: string;
-    constructor(paramName: string, message?: string, innerException?: any);
+    constructor(paramName: string, message?: string, innerException?: unknown);
     protected getName(): string;
 }

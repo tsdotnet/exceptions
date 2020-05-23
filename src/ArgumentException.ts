@@ -17,7 +17,7 @@ export default class ArgumentException
 	constructor (
 		paramName: string,
 		message?: string,
-		innerException?: any)
+		innerException?: unknown)
 	{
 		paramName = paramName ? '{' + paramName + '} ' : '';
 		super(paramName + (message || ''), innerException);

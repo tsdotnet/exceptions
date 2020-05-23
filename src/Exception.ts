@@ -26,7 +26,7 @@ export default class Exception
 	 * @param message
 	 * @param innerException
 	 */
-	constructor (public readonly message: string = '', public readonly innerException?: any)
+	constructor (public readonly message: string = '', public readonly innerException?: unknown)
 	{
 		this.name = this.getName();
 		// Node has a .stack, let's use it...

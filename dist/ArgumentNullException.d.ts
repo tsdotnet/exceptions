@@ -5,6 +5,6 @@
  */
 import ArgumentException from './ArgumentException';
 export default class ArgumentNullException extends ArgumentException {
-    constructor(paramName: string, message?: string, innerException?: any);
+    constructor(paramName: string, message?: string, innerException?: unknown);
     protected getName(): string;
 }
