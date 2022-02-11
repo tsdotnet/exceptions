@@ -17,7 +17,7 @@ describe('Error', () => {
 			// noinspection ExceptionCaughtLocallyJS
 			throw new TypeError(message);
 		}
-		catch(e)
+		catch(e:any)
 		{
 			expect(e.name).equal('TypeError');
 			if(!(e instanceof TypeError)) throw new Error('Not expected type.');
@@ -40,12 +40,20 @@ describe('Exception', () => {
 			// noinspection ExceptionCaughtLocallyJS
 			throw new Exception(message);
 		}
-		catch(e)
+		catch(e:any)
 		{
 			expect(e.stack).not.to.be.null;
 			expect(e.stack.length).not.equal(0);
 			expect(e.name).equal('Exception');
 			if(!(e instanceof Exception)) throw new Error('Throw did not provide expected type.');
 		}
+	});
+});
+
+describe('ArgumentException', ()=>{
+	it('paramName should be the same as what was provided.', ()=>{
+		const param = 'param';
+		const aex = new ArgumentException(param);
+		expect(aex.paramName).equal(param);
 	});
 });

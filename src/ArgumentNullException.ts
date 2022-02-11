@@ -13,7 +13,7 @@ export default class ArgumentNullException
 {
 	constructor (
 		paramName: string,
-		message: string = (paramName || 'Argument ') + 'is null (or undefined).',
+		message: string = (paramName ? `{${paramName}}` : 'Argument') + ' is null (or undefined).',
 		innerException?: unknown)
 	{
 		super(paramName, message, innerException);

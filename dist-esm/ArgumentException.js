@@ -8,8 +8,9 @@ const NAME = 'ArgumentException';
 export default class ArgumentException extends SystemException {
     // For simplicity and consistency, lets stick with 1 signature.
     constructor(paramName, message, innerException) {
-        paramName = paramName ? '{' + paramName + '} ' : '';
-        super(paramName + (message || ''), innerException);
+        if (message && paramName)
+            message = `{${paramName}} ${message}`;
+        super(message, innerException);
         this.paramName = paramName;
     }
     getName() {

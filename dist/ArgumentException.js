@@ -6,13 +6,14 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const SystemException_1 = tslib_1.__importDefault(require("./SystemException"));
+const SystemException_1 = (0, tslib_1.__importDefault)(require("./SystemException"));
 const NAME = 'ArgumentException';
 class ArgumentException extends SystemException_1.default {
     // For simplicity and consistency, lets stick with 1 signature.
     constructor(paramName, message, innerException) {
-        paramName = paramName ? '{' + paramName + '} ' : '';
-        super(paramName + (message || ''), innerException);
+        if (message && paramName)
+            message = `{${paramName}} ${message}`;
+        super(message, innerException);
         this.paramName = paramName;
     }
     getName() {

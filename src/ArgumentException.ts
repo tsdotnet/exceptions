@@ -19,8 +19,9 @@ export default class ArgumentException
 		message?: string,
 		innerException?: unknown)
 	{
-		paramName = paramName ? '{' + paramName + '} ' : '';
-		super(paramName + (message || ''), innerException);
+		if(message && paramName)
+			message = `{${paramName}} ${message}`;
+		super(message, innerException);
 		this.paramName = paramName;
 	}
 

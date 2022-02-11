@@ -6,7 +6,7 @@
 import ArgumentException from './ArgumentException';
 const NAME = 'ArgumentNullException';
 export default class ArgumentNullException extends ArgumentException {
-    constructor(paramName, message = (paramName || 'Argument ') + 'is null (or undefined).', innerException) {
+    constructor(paramName, message = (paramName ? `{${paramName}}` : 'Argument') + ' is null (or undefined).', innerException) {
         super(paramName, message, innerException);
     }
     getName() {
