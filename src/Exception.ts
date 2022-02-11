@@ -16,7 +16,7 @@ const NAME: string = 'Exception';
  * Represents errors that occur during application execution.
  */
 export default class Exception
-	implements Error
+implements Error
 {
 	readonly name: string;
 	readonly stack: string;
