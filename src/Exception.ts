@@ -39,7 +39,7 @@ implements Error
 
 			this.stack = this.toStringWithoutBrackets() + stack;
 		}
-		catch(ex)
+		catch
 		{
 			this.stack = '';
 		}

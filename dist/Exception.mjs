@@ -34,7 +34,7 @@ export default class Exception {
                 .stack?.replace(/^Error\n/, '').replace(/(.|\n)+\s+at new.+/, '') || '';
             this.stack = this.toStringWithoutBrackets() + stack;
         }
-        catch (ex) {
+        catch {
             this.stack = '';
         }
     }
