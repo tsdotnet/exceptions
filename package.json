@@ -4,9 +4,17 @@
   "description": "",
   "author": "electricessence",
   "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/*": "./dist/*"
+  },
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
-  "module": "dist-esm/index.js",
+  "module": "dist/index.mjs",
   "keywords": [
     "exceptions",
     "Exception",
@@ -18,11 +26,11 @@
     "SystemException"
   ],
   "scripts": {
-    "build:dist": "rimraf dist/* && tsc && copyfiles -u 1 src/**/*.d.ts dist",
-    "build:dist-esm": "rimraf dist-esm/* && tsc -p tsconfig.esm.json",
-    "build": "pnpm i && pnpm run build:dist && pnpm run build:dist-esm",
+    "build:cjs": "rimraf dist && tsc && copyfiles -u 1 src/**/*.d.ts dist",
+    "build:esm": "rimraf temp-esm && tsc -p tsconfig.esm.json --outDir temp-esm && node -e \"require('fs').readdirSync('temp-esm').forEach(f=>{if(f.endsWith('.js')){require('fs').copyFileSync('temp-esm/'+f,'dist/'+f.replace('.js','.mjs'));} if(f.endsWith('.js.map')){require('fs').copyFileSync('temp-esm/'+f,'dist/'+f.replace('.js.map','.mjs.map'));}})\" && rimraf temp-esm",
+    "build": "pnpm i && pnpm run build:cjs && pnpm run build:esm",
     "bump": "npm run-script precommit && npm version patch",
-    "docs": "rimraf docs/* && typedoc --options typedoc.json --readme none",
+    "docs": "rimraf docs && typedoc --options typedoc.json --readme none",
     "lint": "eslint src/**/*.ts",
     "precommit": "pnpm i && run-p lint test && run-p build:* && npm run-script validate && git status -s",
     "prepublishOnly": "npm run-script build && run-p validate test",

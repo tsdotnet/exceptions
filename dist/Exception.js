@@ -15,13 +15,16 @@ const NAME = 'Exception';
  * Represents errors that occur during application execution.
  */
 class Exception {
+    message;
+    innerException;
+    name;
+    stack;
     /**
      * Initializes a new instance of the Exception class with a specified error message and optionally a reference to the inner exception that is the cause of this exception.
      * @param message
      * @param innerException
      */
     constructor(message = '', innerException) {
-        var _a;
         this.message = message;
         this.innerException = innerException;
         this.name = this.getName();
@@ -29,8 +32,8 @@ class Exception {
         try {
             // To avoid unnecessary imports, use eval.
             // tslint:disable-next-line:no-eval
-            const stack = ((_a = eval('new Error()')
-                .stack) === null || _a === void 0 ? void 0 : _a.replace(/^Error\n/, '').replace(/(.|\n)+\s+at new.+/, '')) || '';
+            const stack = eval('new Error()')
+                .stack?.replace(/^Error\n/, '').replace(/(.|\n)+\s+at new.+/, '') || '';
             this.stack = this.toStringWithoutBrackets() + stack;
         }
         catch (ex) {
