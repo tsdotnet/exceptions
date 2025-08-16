@@ -26,7 +26,7 @@ importers:
   .:
     dependencies:
       tslib:
-        specifier: ^2.4.1
+        specifier: ^2.8.1
         version: 2.8.1
     devDependencies:
       '@eslint/js':
@@ -54,8 +54,8 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1
       concurrently:
-        specifier: ^8.2.2
-        version: 8.2.2
+        specifier: ^9.2.0
+        version: 9.2.0
       copyfiles:
         specifier: ^2.4.1
         version: 2.4.1
@@ -91,10 +91,6 @@ importers:
         version: 8.39.1(eslint@9.33.0)(typescript@5.9.2)
 
 packages:
-
-  '@babel/runtime@7.28.3':
-    resolution: {integrity: sha512-9uIQ10o0WGdpP6GDhXcdOJPJuDgFtIDtN/9+ArJQ2NAfAmiuhTQdzkaTGR33v43GYS2UrSA0eX2pPPHoFVvpxA==}
-    engines: {node: '>=6.9.0'}
 
   '@bcoe/v8-coverage@1.0.2':
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
@@ -483,9 +479,9 @@ packages:
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
-  concurrently@8.2.2:
-    resolution: {integrity: sha512-1dP4gpXFhei8IOtlXRE/T/4H88ElHgTiUzh71YUmtjTEHMSRS2Z/fgOxHSxxusGHogsRfxNq1vyAwxSC+EVyDg==}
-    engines: {node: ^14.13.0 || >=16.0.0}
+  concurrently@9.2.0:
+    resolution: {integrity: sha512-IsB/fiXTupmagMW4MNp2lx2cdSN2FfZq78vF90LBB+zZHArbIQZjQtzXCiXnvTxCZSvXanTqFLWBjw2UkLx1SQ==}
+    engines: {node: '>=18'}
     hasBin: true
 
   convert-source-map@2.0.0:
@@ -516,10 +512,6 @@ packages:
   data-view-byte-offset@1.0.1:
     resolution: {integrity: sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ==}
     engines: {node: '>= 0.4'}
-
-  date-fns@2.30.0:
-    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
-    engines: {node: '>=0.11'}
 
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -1408,9 +1400,6 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  spawn-command@0.0.2:
-    resolution: {integrity: sha512-zC8zGoGkmc8J9ndvml8Xksr1Amk9qBujgbF0JAIWO7kXr43w0h/0GJNM/Vustixu+YE8N/MTrQ7N31FvHUACxQ==}
-
   stop-iteration-iterator@1.1.0:
     resolution: {integrity: sha512-eLoXW/DHyl62zxY4SCaIgnRhuMr6ri4juEYARS8E6sCEqzKpOiE521Ucofdx+KnDZl5xmvGYaaKCk5FEOxJCoQ==}
     engines: {node: '>= 0.4'}
@@ -1666,8 +1655,6 @@ packages:
     engines: {node: '>=10'}
 
 snapshots:
-
-  '@babel/runtime@7.28.3': {}
 
   '@bcoe/v8-coverage@1.0.2': {}
 
@@ -2115,14 +2102,12 @@ snapshots:
 
   concat-map@0.0.1: {}
 
-  concurrently@8.2.2:
+  concurrently@9.2.0:
     dependencies:
       chalk: 4.1.2
-      date-fns: 2.30.0
       lodash: 4.17.21
       rxjs: 7.8.2
       shell-quote: 1.8.3
-      spawn-command: 0.0.2
       supports-color: 8.1.1
       tree-kill: 1.2.2
       yargs: 17.7.2
@@ -2166,10 +2151,6 @@ snapshots:
       call-bound: 1.0.4
       es-errors: 1.3.0
       is-data-view: 1.0.2
-
-  date-fns@2.30.0:
-    dependencies:
-      '@babel/runtime': 7.28.3
 
   debug@3.2.7:
     dependencies:
@@ -3186,8 +3167,6 @@ snapshots:
       side-channel-weakmap: 1.0.2
 
   signal-exit@4.1.0: {}
-
-  spawn-command@0.0.2: {}
 
   stop-iteration-iterator@1.1.0:
     dependencies:
