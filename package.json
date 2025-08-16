@@ -42,7 +42,7 @@
     "prepublishOnly": "pnpm run build && concurrently \"pnpm:validate\" \"pnpm:test\"",
     "preversion": "concurrently \"pnpm:lint\" \"pnpm:test\"",
     "postversion": "git push && git push --tags && pnpm run docs && git add -A && git commit -m \"Updated docs.\" docs && git push",
-    "test": "mocha -r ts-node/register tests/**/*.ts",
+    "test": "tsx node_modules/mocha/bin/_mocha tests/**/*.ts",
     "validate": "node ./.build/validate-package.js"
   },
   "repository": {
@@ -70,7 +70,7 @@
     "eslint-plugin-promise": "^7.2.1",
     "mocha": "^11.7.1",
     "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.20.4",
     "typedoc": "^0.28.10",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.1"

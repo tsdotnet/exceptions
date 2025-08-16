@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import { ArgumentException } from '../dist/esm/index.js';
+import { ArgumentException, Exception } from '../src/index.ts';
 
 const message = 'Test';
 
