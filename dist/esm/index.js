@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.NullReferenceException = exports.NotImplementedException = exports.InvalidOperationException = exports.ArgumentOutOfRangeException = exports.ArgumentNullException = exports.ArgumentException = exports.SystemException = exports.Exception = void 0;
+const tslib_1 = require("tslib");
+const Exception_1 = tslib_1.__importDefault(require("./Exception"));
+exports.Exception = Exception_1.default;
+const SystemException_1 = tslib_1.__importDefault(require("./SystemException"));
+exports.SystemException = SystemException_1.default;
+const ArgumentException_1 = tslib_1.__importDefault(require("./ArgumentException"));
+exports.ArgumentException = ArgumentException_1.default;
+const ArgumentNullException_1 = tslib_1.__importDefault(require("./ArgumentNullException"));
+exports.ArgumentNullException = ArgumentNullException_1.default;
+const ArgumentOutOfRangeException_1 = tslib_1.__importDefault(require("./ArgumentOutOfRangeException"));
+exports.ArgumentOutOfRangeException = ArgumentOutOfRangeException_1.default;
+const InvalidOperationException_1 = tslib_1.__importDefault(require("./InvalidOperationException"));
+exports.InvalidOperationException = InvalidOperationException_1.default;
+const NotImplementedException_1 = tslib_1.__importDefault(require("./NotImplementedException"));
+exports.NotImplementedException = NotImplementedException_1.default;
+const NullReferenceException_1 = tslib_1.__importDefault(require("./NullReferenceException"));
+exports.NullReferenceException = NullReferenceException_1.default;
+exports.default = Exception_1.default;
+//# sourceMappingURL=index.js.map

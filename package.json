@@ -6,15 +6,18 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
       "types": "./dist/index.d.ts"
     },
     "./dist/*": "./dist/*"
   },
   "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "umd:main": "dist/umd/index.js",
+  "unpkg": "dist/umd/index.js",
+  "jsdelivr": "dist/umd/index.js",
   "keywords": [
     "exceptions",
     "Exception",
@@ -26,9 +29,12 @@
     "SystemException"
   ],
   "scripts": {
-    "build:cjs": "rimraf dist && tsc && copyfiles -u 1 src/**/*.d.ts dist",
-    "build:esm": "rimraf temp-esm && tsc -p tsconfig.esm.json --outDir temp-esm && node -e \"require('fs').readdirSync('temp-esm').forEach(f=>{if(f.endsWith('.js')){require('fs').copyFileSync('temp-esm/'+f,'dist/'+f.replace('.js','.mjs'));} if(f.endsWith('.js.map')){require('fs').copyFileSync('temp-esm/'+f,'dist/'+f.replace('.js.map','.mjs.map'));}})\" && rimraf temp-esm",
-    "build": "pnpm i && pnpm run build:cjs && pnpm run build:esm",
+    "clean": "rimraf dist",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:umd": "tsc -p tsconfig.umd.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build": "pnpm i && pnpm run clean && concurrently \"pnpm:build:*\"",
     "bump": "pnpm run precommit && pnpm version patch",
     "docs": "rimraf docs && typedoc --options typedoc.json --readme none",
     "lint": "eslint src/**/*.ts",

@@ -26,7 +26,9 @@ implements Error
 	 * @param message
 	 * @param innerException
 	 */
-	constructor (public readonly message: string = '', public readonly innerException?: unknown)
+	constructor (
+		public readonly message: string = '',
+		public readonly innerException?: unknown)
 	{
 		this.name = this.getName();
 		// Node has a .stack, let's use it...

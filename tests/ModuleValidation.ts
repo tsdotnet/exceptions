@@ -1,7 +1,7 @@
 import {expect} from 'chai';
-import Exception from '../dist/Exception';
-import ArgumentException from '../dist/ArgumentException';
-import * as IndexModule from '../dist/index';
+import Exception from '../dist/esm/';
+import ArgumentException from '../dist/esm/ArgumentException';
+import * as IndexModule from '../dist/esm/index';
 
 describe('Module Validation', () =>
 {
