@@ -7,7 +7,6 @@ import SystemException from './SystemException';
 const NAME = 'ArgumentException';
 export default class ArgumentException extends SystemException {
     paramName;
-    // For simplicity and consistency, lets stick with 1 signature.
     constructor(paramName, message, innerException) {
         if (message && paramName)
             message = `{${paramName}} ${message}`;
