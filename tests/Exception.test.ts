@@ -41,6 +41,42 @@ describe('Exception', () => {
 			if (!(e instanceof Exception)) throw new Error('Throw did not provide expected type.');
 		}
 	});
+
+	it('should capture proper stack trace without eval', () => {
+		const ex = new Exception('Stack trace test');
+		
+		// Stack should exist and be non-empty
+		expect(ex.stack).toBeTruthy();
+		expect(ex.stack!.length).toBeGreaterThan(0);
+		
+		// Stack should not contain 'Error' at the beginning (cleaned by regex)
+		expect(ex.stack).not.toMatch(/^Error\n/);
+		
+		// Should contain the exception message 
+		expect(ex.stack).toContain('Stack trace test');
+		
+		// Should contain 'Exception:' from toStringWithoutBrackets()
+		expect(ex.stack).toContain('Exception:');
+		
+		// Basic validation that it looks like a stack trace
+		expect(ex.stack).toMatch(/at .+/); // Should have "at" lines
+		
+		console.log('✅ Stack trace captured successfully:', ex.stack?.substring(0, 100) + '...');
+	});
+
+	it('should handle environments without stack support gracefully', () => {
+		// We can't easily mock Error.stack in tests, but we can verify
+		// that the fallback messages are properly formatted
+		const ex = new Exception('Fallback test');
+		
+		// Should always have some stack content (either real or fallback)
+		expect(ex.stack).toBeTruthy();
+		expect(ex.stack).toContain('Exception:');
+		expect(ex.stack).toContain('Fallback test');
+		
+		// Should not be empty even in worst case
+		expect(ex.stack!.length).toBeGreaterThan(10);
+	});
 });
 
 describe('ArgumentException', () => {

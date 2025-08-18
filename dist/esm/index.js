@@ -1,11 +1,13 @@
-import Exception from './Exception';
-import SystemException from './SystemException';
-import ArgumentException from './ArgumentException';
-import ArgumentNullException from './ArgumentNullException';
-import ArgumentOutOfRangeException from './ArgumentOutOfRangeException';
-import InvalidOperationException from './InvalidOperationException';
-import NotImplementedException from './NotImplementedException';
-import NullReferenceException from './NullReferenceException';
-export { Exception, SystemException, ArgumentException, ArgumentNullException, ArgumentOutOfRangeException, InvalidOperationException, NotImplementedException, NullReferenceException };
-export default Exception;
+import Exception from './Exception.js';
+export { default as SystemException } from './SystemException.js';
+export { default as ArgumentException } from './ArgumentException.js';
+export { default as ArgumentNullException } from './ArgumentNullException.js';
+export { default as ArgumentOutOfRangeException } from './ArgumentOutOfRangeException.js';
+export { default as InvalidOperationException } from './InvalidOperationException.js';
+export { default as NotImplementedException } from './NotImplementedException.js';
+export { default as NullReferenceException } from './NullReferenceException.js';
+
+
+
+export { Exception, Exception as default };
 //# sourceMappingURL=index.js.map

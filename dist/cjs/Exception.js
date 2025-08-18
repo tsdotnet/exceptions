@@ -8,17 +8,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const NAME = 'Exception';
 class Exception {
     constructor(message = '', innerException) {
-        var _a;
         this.message = message;
         this.innerException = innerException;
         this.name = this.getName();
+        this.stack = this.captureStackTrace();
+    }
+    captureStackTrace() {
         try {
-            const stack = ((_a = eval('new Error()')
-                .stack) === null || _a === void 0 ? void 0 : _a.replace(/^Error\n/, '').replace(/(.|\n)+\s+at new.+/, '')) || '';
-            this.stack = this.toStringWithoutBrackets() + stack;
+            const testError = new Error();
+            if (typeof testError.stack === 'string' && testError.stack.length > 0) {
+                const stack = testError.stack
+                    .replace(/^Error\n/, '')
+                    .replace(/(.|\n)+\s+at new.+/, '') || '';
+                return this.toStringWithoutBrackets() + stack;
+            }
+            else {
+                return this.toStringWithoutBrackets() + '\n    (stack trace not available in this environment)';
+            }
         }
-        catch (_b) {
-            this.stack = '';
+        catch (_a) {
+            return this.toStringWithoutBrackets() + '\n    (unable to capture stack trace)';
         }
     }
     toString() {

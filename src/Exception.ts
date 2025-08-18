@@ -31,19 +31,37 @@ implements Error
 		public readonly innerException?: unknown)
 	{
 		this.name = this.getName();
-		// Node has a .stack, let's use it...
+		this.stack = this.captureStackTrace();
+	}
+
+	/**
+	 * Captures stack trace with fallbacks for different environments
+	 */
+	private captureStackTrace(): string
+	{
 		try
 		{
-			// To avoid unnecessary imports, use eval.
-			// tslint:disable-next-line:no-eval
-			const stack: string = eval('new Error()')
-				.stack?.replace(/^Error\n/, '').replace(/(.|\n)+\s+at new.+/, '') || '';
-
-			this.stack = this.toStringWithoutBrackets() + stack;
+			// Check if Error.stack is supported
+			const testError = new Error();
+			if (typeof testError.stack === 'string' && testError.stack.length > 0)
+			{
+				// Use native stack trace with cleanup
+				const stack = testError.stack
+					.replace(/^Error\n/, '')
+					.replace(/(.|\n)+\s+at new.+/, '') || '';
+				
+				return this.toStringWithoutBrackets() + stack;
+			}
+			else
+			{
+				// Fallback: No native stack support
+				return this.toStringWithoutBrackets() + '\n    (stack trace not available in this environment)';
+			}
 		}
 		catch
 		{
-			this.stack = '';
+			// Ultimate fallback: Error during stack capture
+			return this.toStringWithoutBrackets() + '\n    (unable to capture stack trace)';
 		}
 	}
 

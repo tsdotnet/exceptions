@@ -9,6 +9,7 @@ export default class Exception implements Error {
     readonly name: string;
     readonly stack: string;
     constructor(message?: string, innerException?: unknown | undefined);
+    private captureStackTrace;
     toString(): string;
     protected getName(): string;
     protected toStringWithoutBrackets(): string;

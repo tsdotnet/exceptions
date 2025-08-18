@@ -1,11 +1,12 @@
+import ArgumentException from './ArgumentException.js';
+
 /*!
  * @author electricessence / https://github.com/electricessence/
  * Licensing: MIT
  * Based upon: https://msdn.microsoft.com/en-us/library/System.Exception%28v=vs.110%29.aspx
  */
-import ArgumentException from './ArgumentException';
 const NAME = 'ArgumentOutOfRangeException';
-export default class ArgumentOutOfRangeException extends ArgumentException {
+class ArgumentOutOfRangeException extends ArgumentException {
     actualValue;
     constructor(paramName, actualValue, message = ' ', innerException) {
         super(paramName, `(${actualValue}) ` + message, innerException);
@@ -15,4 +16,6 @@ export default class ArgumentOutOfRangeException extends ArgumentException {
         return NAME;
     }
 }
+
+export { ArgumentOutOfRangeException as default };
 //# sourceMappingURL=ArgumentOutOfRangeException.js.map
