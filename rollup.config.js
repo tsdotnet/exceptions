@@ -1,6 +1,5 @@
 import { defineConfig } from 'rollup';
 import typescript from '@rollup/plugin-typescript';
-import resolve from '@rollup/plugin-node-resolve';
 
 export default defineConfig({
   input: 'src/index.ts', // Just use the main entry point
@@ -17,9 +16,6 @@ export default defineConfig({
     (id) => !id.startsWith('.') && !id.startsWith('/') && !id.startsWith('\0')
   ],
   plugins: [
-    resolve({
-      preferBuiltins: false
-    }),
     typescript({
       tsconfig: './tsconfig.esm.json',
       declaration: false, // Keep your existing types build
@@ -29,3 +25,5 @@ export default defineConfig({
     })
   ]
 });
+
+
