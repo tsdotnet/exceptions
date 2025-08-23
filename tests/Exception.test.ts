@@ -1,5 +1,5 @@
 import {describe, it, expect} from 'vitest';
-import { ArgumentException, Exception } from '../src/index.ts';
+import { ArgumentException, Exception } from '../src/index';
 
 const message = 'Test';
 
