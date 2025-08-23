@@ -77,6 +77,79 @@ describe('Exception', () => {
 		// Should not be empty even in worst case
 		expect(ex.stack!.length).toBeGreaterThan(10);
 	});
+
+	it('should handle errors during stack capture', () => {
+		// Create a scenario where stack capture might fail
+		// We'll temporarily break Error constructor to trigger catch block
+		const originalError = global.Error;
+		
+		try {
+			// Mock Error to throw during construction
+			let mockCalled = false;
+			global.Error = function(this: any) {
+				mockCalled = true;
+				throw new TypeError('Mocked error during stack capture');
+			} as any;
+			
+			const ex = new Exception('Error capture test');
+			
+			// Should have fallback content even if stack capture fails
+			expect(ex.stack).toBeTruthy();
+			expect(ex.stack).toContain('Exception:');
+			expect(ex.stack).toContain('Error capture test');
+			
+			// Should contain the ultimate fallback message
+			expect(ex.stack).toContain('(unable to capture stack trace)');
+			
+			// Verify our mock was called
+			expect(mockCalled).toBe(true);
+		} finally {
+			// Always restore original Error
+			global.Error = originalError;
+		}
+	});
+
+	it('should handle environments with no stack property', () => {
+		// Mock Error to return undefined stack
+		const originalError = global.Error;
+		
+		try {
+			global.Error = function(this: any) {
+				this.stack = undefined; // No stack property
+			} as any;
+			
+			const ex = new Exception('No stack test');
+			
+			// Should use fallback message
+			expect(ex.stack).toBeTruthy();
+			expect(ex.stack).toContain('Exception:');
+			expect(ex.stack).toContain('No stack test');
+			expect(ex.stack).toContain('(stack trace not available in this environment)');
+		} finally {
+			global.Error = originalError;
+		}
+	});
+
+	it('should handle environments with empty stack', () => {
+		// Mock Error to return empty stack
+		const originalError = global.Error;
+		
+		try {
+			global.Error = function(this: any) {
+				this.stack = ''; // Empty stack
+			} as any;
+			
+			const ex = new Exception('Empty stack test');
+			
+			// Should use fallback message when stack is empty
+			expect(ex.stack).toBeTruthy();
+			expect(ex.stack).toContain('Exception:');
+			expect(ex.stack).toContain('Empty stack test');
+			expect(ex.stack).toContain('(stack trace not available in this environment)');
+		} finally {
+			global.Error = originalError;
+		}
+	});
 });
 
 describe('ArgumentException', () => {
