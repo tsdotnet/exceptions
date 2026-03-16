@@ -1,7 +1,7 @@
 import {describe, it, expect} from 'vitest';
-import Exception from '../src/';
-import ArgumentException from '../src/ArgumentException';
-import * as IndexModule from '../src/index';
+import Exception from '../src/index.js';
+import ArgumentException from '../src/ArgumentException.js';
+import * as IndexModule from '../src/index.js';
 
 describe('Module Validation', () => {
 	it('should import individual classes from dist', () => {

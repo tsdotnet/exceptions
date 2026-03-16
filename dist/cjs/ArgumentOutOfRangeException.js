@@ -6,9 +6,9 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const ArgumentException_1 = tslib_1.__importDefault(require("./ArgumentException"));
+const ArgumentException_js_1 = tslib_1.__importDefault(require("./ArgumentException.js"));
 const NAME = 'ArgumentOutOfRangeException';
-class ArgumentOutOfRangeException extends ArgumentException_1.default {
+class ArgumentOutOfRangeException extends ArgumentException_js_1.default {
     constructor(paramName, actualValue, message = ' ', innerException) {
         super(paramName, `(${actualValue}) ` + message, innerException);
         this.actualValue = actualValue;

@@ -1,11 +1,11 @@
-import Exception from './Exception';
-import SystemException from './SystemException';
-import ArgumentException from './ArgumentException';
-import ArgumentNullException from './ArgumentNullException';
-import ArgumentOutOfRangeException from './ArgumentOutOfRangeException';
-import InvalidOperationException from './InvalidOperationException';
-import NotImplementedException from './NotImplementedException';
-import NullReferenceException from './NullReferenceException';
+import Exception from './Exception.js';
+import SystemException from './SystemException.js';
+import ArgumentException from './ArgumentException.js';
+import ArgumentNullException from './ArgumentNullException.js';
+import ArgumentOutOfRangeException from './ArgumentOutOfRangeException.js';
+import InvalidOperationException from './InvalidOperationException.js';
+import NotImplementedException from './NotImplementedException.js';
+import NullReferenceException from './NullReferenceException.js';
 
 export
 {

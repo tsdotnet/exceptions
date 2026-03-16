@@ -3,7 +3,7 @@
  * Licensing: MIT
  * Based upon: https://msdn.microsoft.com/en-us/library/system.systemexception%28v=vs.110%29.aspx
  */
-import Exception from './Exception';
+import Exception from './Exception.js';
 export default class SystemException extends Exception {
     protected getName(): string;
 }

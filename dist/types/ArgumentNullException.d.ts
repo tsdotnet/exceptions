@@ -3,7 +3,7 @@
  * Licensing: MIT
  * Based upon: https://msdn.microsoft.com/en-us/library/System.Exception%28v=vs.110%29.aspx
  */
-import ArgumentException from './ArgumentException';
+import ArgumentException from './ArgumentException.js';
 export default class ArgumentNullException extends ArgumentException {
     constructor(paramName: string, message?: string, innerException?: unknown);
     protected getName(): string;

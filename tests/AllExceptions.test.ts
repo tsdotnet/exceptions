@@ -7,7 +7,7 @@ import {
 	NullReferenceException,
 	SystemException,
 	Exception
-} from '../src/index';
+} from '../src/index.js';
 
 describe('ArgumentNullException', () => {
 	it('should create with paramName and default message', () => {

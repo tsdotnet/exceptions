@@ -6,9 +6,9 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const Exception_1 = tslib_1.__importDefault(require("./Exception"));
+const Exception_js_1 = tslib_1.__importDefault(require("./Exception.js"));
 const NAME = 'SystemException';
-class SystemException extends Exception_1.default {
+class SystemException extends Exception_js_1.default {
     getName() {
         return NAME;
     }
