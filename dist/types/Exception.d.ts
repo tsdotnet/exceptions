@@ -5,10 +5,10 @@
  */
 export default class Exception implements Error {
     readonly message: string;
-    readonly innerException?: unknown | undefined;
+    readonly innerException?: unknown;
     readonly name: string;
     readonly stack: string;
-    constructor(message?: string, innerException?: unknown | undefined);
+    constructor(message?: string, innerException?: unknown);
     private captureStackTrace;
     toString(): string;
     protected getName(): string;
