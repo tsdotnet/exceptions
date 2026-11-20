@@ -1,4 +1,4 @@
-![@tsdotnet/exceptions: Errors with meaning. The .NET exception types, in TS.](https://cdn.jsdelivr.net/gh/tsdotnet/exceptions@master/assets/banner.svg)
+<a href="https://tsdotnet.github.io/exceptions/"><img src="https://cdn.jsdelivr.net/gh/tsdotnet/exceptions@master/assets/banner.svg" alt="@tsdotnet/exceptions: Errors with meaning. The .NET exception types, in TS."></a>
 
 [![npm version](https://img.shields.io/npm/v/@tsdotnet/exceptions.svg?style=flat-square)](https://www.npmjs.com/package/@tsdotnet/exceptions)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/tsdotnet/exceptions/blob/master/LICENSE)
